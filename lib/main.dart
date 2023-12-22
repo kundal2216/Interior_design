@@ -1,5 +1,6 @@
 import 'package:flutter_application_1/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/flutter_3d_obj.dart';
 
 
 void main() {
@@ -62,25 +63,33 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 FittedBox(
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 25),
-                    padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                    decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),
-                    color: kPrimryColor,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        return const MyFurniture();
+                      },
+                      ));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 25),
+                      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+                      decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),
+                      color: kPrimryColor,
+                      ),
+                      child: Row(
+                        children: <Widget>[Text(
+                          "Design here",
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                            color: Colors.black),
+                          ),
+                          const SizedBox(width: 10),
+                          const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.black,
+                            )
+                        ],
+                      )
                     ),
-                    child: Row(
-                      children: <Widget>[Text(
-                        "Design here",
-                        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: Colors.black),
-                        ),
-                        const SizedBox(width: 10),
-                        const Icon(
-                          Icons.arrow_forward,
-                          color: Colors.black,
-                          )
-                      ],
-                    )
                   ),
                 )
               ],
