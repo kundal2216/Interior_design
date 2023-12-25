@@ -28,7 +28,7 @@ class FurnitureScreen extends StatefulWidget {
 }
 
 class _FurnitureScreenState extends State<FurnitureScreen> {
-  String selectedSofaModel = 'assets/sofa.obj';
+  String selectedSofaModel = 'Assets/sofa11.avif';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _FurnitureScreenState extends State<FurnitureScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Draggable<String>(
-                data: 'assets/Sofa.obj',
+                data: 'Assets/sofa11.avif',
                 feedback: const DraggableItem(item: 'Sofa', isDragging: true),
                 childWhenDragging: Container(),
                 child: const DraggableItem(item: 'Sofa'),

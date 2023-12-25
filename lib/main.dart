@@ -1,6 +1,7 @@
 import 'package:flutter_application_1/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/flutter_3d_obj.dart';
+import 'package:flutter_application_1/darg.dart';
+import 'package:flutter_application_1/Pages/Designer.dart';
 
 
 void main() {
@@ -18,10 +19,10 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimryColor,
         scaffoldBackgroundColor: kBackgroudColor,
         textTheme: const TextTheme(
-          displayLarge: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
+          displayLarge: TextStyle(color: Colors.white,fontWeight: FontWeight.bold, fontFamily: 'IndieFlower'),
           bodyLarge: TextStyle(color:kPrimryColor),
               headlineLarge:
-              TextStyle(color: Colors.white,fontWeight: FontWeight.normal),
+              TextStyle(color: Colors.white,fontWeight: FontWeight.normal,fontFamily: 'IndieFlower'),
           ),
         ),
              home: const WelcomeScreen(),
@@ -34,6 +35,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var children;
     return Scaffold(
       body:Column(
         children: <Widget>[
@@ -62,36 +64,86 @@ class WelcomeScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                FittedBox(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
-                        return const MyFurniture();
-                      },
-                      ));
-                    },
-                    child: Container(
-                      margin: const EdgeInsets.only(bottom: 25),
-                      padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
-                      decoration: BoxDecoration(borderRadius:BorderRadius.circular(30),
-                      color: kPrimryColor,
-                      ),
-                      child: Row(
-                        children: <Widget>[Text(
-                          "Design here",
-                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            color: Colors.black),
-                          ),
-                          const SizedBox(width: 10),
-                          const Icon(
-                            Icons.arrow_forward,
-                            color: Colors.black,
-                            )
-                        ],
-                      )
+Column(
+  children: [
+    FittedBox(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return MyFurniture();
+              },
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: kPrimryColor, // You might need to define kPrimryColor
+          ),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Custom",
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Colors.black,
                     ),
-                  ),
-                )
+              ),
+              const SizedBox(width: 10),
+              const Icon(
+                Icons.arrow_forward,
+                color: Colors.black,
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+    const SizedBox(height: 16),
+    FittedBox(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return  DesignerPage();
+              },
+            ),
+          );
+        },
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 25),
+          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: kPrimryColor, // You might need to define kPrimryColor
+          ),
+          child: Row(
+            children: <Widget>[
+              Text(
+                "Designs",
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                      color: Colors.black,
+                    ),
+              ),
+              const SizedBox(width: 10),
+              const Icon(
+                Icons.arrow_forward,
+                color: Colors.black,
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+
               ],
             ),
           ),
