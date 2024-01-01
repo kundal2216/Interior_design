@@ -1,12 +1,25 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/darg.dart';
-import 'package:flutter_application_1/Pages/Designer.dart';
+import 'package:flutter_application_1/overlaping_fix.dart';
+import 'package:flutter_application_1/dragimage.dart';
+//import '../data/data.dart';
 
 
-void main() {
-  runApp(const MyApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  runApp(MyApp());
 }
+
+//commented as cheking to run code to fix image
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -73,7 +86,7 @@ Column(
             context,
             MaterialPageRoute(
               builder: (context) {
-                return MyFurniture();
+                return DragImage();
               },
             ),
           );
@@ -111,7 +124,7 @@ Column(
             context,
             MaterialPageRoute(
               builder: (context) {
-                return  DesignerPage();
+                return  Overlap();
               },
             ),
           );

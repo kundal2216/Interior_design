@@ -36,7 +36,7 @@ class _DesignerPageState extends State<DesignerPage> {
                 ),
               ],
             ),
-            SvgPicture.asset('Assets/Images/forward_icon.svg'), // Adjusted the path to lowercase
+            SvgPicture.asset("Assets/Images/forward_icon.svg"), // Adjusted the path to lowercase
           ],
         ),
         SizedBox(height: 30,),
@@ -49,7 +49,8 @@ class _DesignerPageState extends State<DesignerPage> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(image: 
-                      AssetImage('Assets/Images/erik.avif'),
+                      NetworkImage('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D'),
+                      fit: BoxFit.cover
                    ),
                  ),
                 ),

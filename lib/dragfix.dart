@@ -27,6 +27,7 @@ class _DragAndDropScreenState extends State<DragAndDropScreen> {
   String draggableData = 'Assets/Images/sofa10.jpeg';
   String dragTargetData = 'Assets/Images/hall.jpg'; // Add a variable for DragTarget data
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,40 +38,38 @@ class _DragAndDropScreenState extends State<DragAndDropScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //Image.asset(draggableData),
-            //Image.asset(dragTargetData),
-            Draggable(
-              data: draggableData,
-              feedback: Container(
-                width: 100,
-                height: 50,
-                color: Colors.blue.withOpacity(0.5),
-                child: Center(
-                  child: Image.asset(
-                    draggableData,
-                    fit: BoxFit.cover,
-                    height: 50,
-                    width: 100,
-                    //style: const TextStyle(color: Colors.white),
-                    ),
+              Draggable(
+                data: draggableData,
+                feedback: Container(
+                  width: 100,
+                  height: 50,
+                  color: Colors.blue.withOpacity(0.5),
+                  child: Center(
+                    child: Image.asset(
+                      draggableData,
+                      fit: BoxFit.cover,
+                      height: 50,
+                      width: 100,
+                      //style: const TextStyle(color: Colors.white),
+                      ),
+                  ),
                 ),
-              ),
-              childWhenDragging: Container(),
-              child: Container(
-                width: 100,
-                height: 50,
-                color: Colors.blue,
-                child: Center(
-                  child: Image.asset(
-                    draggableData,
-                    fit: BoxFit.cover,
-                    height: 50,
-                    width: 100,
-                    //style: const TextStyle(color: Colors.white),
+                childWhenDragging: Container(),
+                child: Container(
+                  width: 100,
+                  height: 50,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Image.asset(
+                      draggableData,
+                      fit: BoxFit.cover,
+                      height: 50,
+                      width: 100,
+                      //style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
-            ),
             const SizedBox(height: 20),
             DragTarget(
               builder: (BuildContext context, List<String?> candidateData, List<dynamic> rejectedData) {
@@ -91,7 +90,7 @@ class _DragAndDropScreenState extends State<DragAndDropScreen> {
               },
               onAccept: (String data) {
                 setState(() {
-                  dragTargetData = 'Assets/Images/hall design6.jpg'; // Change the DragTarget data here
+                  dragTargetData = 'Assets/Images/room interior6.jpg'; // Change the DragTarget data here
                 });
               },
             ),
