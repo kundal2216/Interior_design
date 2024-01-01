@@ -30,13 +30,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter 
+  flutter_svg: ^0.22.0
   another_flushbar: ^1.12.30 
   image_picker: ^1.0.5
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   # flutter_3d_obj;
 
 dev_dependencies:
@@ -73,6 +74,19 @@ flutter:
   - Assets/Images/diningtable5.jpg
   - Assets/Images/interior_design.png
   - Assets/Images/vase.jpg
+  - Assets/Images/image_detail.png
+  - Assets/Images/share_icon.svg
+  - Assets/Images/heart_icon.svg
+  - Assets/Images/back_icon.svg
+  - Assets/Images/image_1.png
+  - Assets/Images/image_2.png
+  - Assets/Images/image_3.png
+  - Assets/Images/image_4.png
+  - Assets/Images/image_5.png
+  - Assets/Images/burger_icon.svg
+  - Assets/Images/search_icon.svg
+  - Assets/Images/forward_icon.svg 
+  
 
   #   - images/a_dot_ham.jpeg
 

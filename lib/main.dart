@@ -1,8 +1,10 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constant.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/overlaping_fix.dart';
+// import 'package:flutter_application_1/overlaping_fix.dart';
 import 'package:flutter_application_1/dragimage.dart';
+import 'package:flutter_application_1/readymade/home_page.dart';
+
 //import '../data/data.dart';
 
 
@@ -13,7 +15,7 @@ Future main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 //commented as cheking to run code to fix image
@@ -48,7 +50,6 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var children;
     return Scaffold(
       body:Column(
         children: <Widget>[
@@ -124,7 +125,7 @@ Column(
             context,
             MaterialPageRoute(
               builder: (context) {
-                return  Overlap();
+                return  const HomePage();
               },
             ),
           );
