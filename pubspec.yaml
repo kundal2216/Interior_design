@@ -85,8 +85,19 @@ flutter:
   - Assets/Images/image_5.png
   - Assets/Images/burger_icon.svg
   - Assets/Images/search_icon.svg
-  - Assets/Images/forward_icon.svg 
-  
+  - Assets/Images/forward_icon.svg
+  - Assets/Images/sofa2.jpg
+  - Assets/Images/Vase2.png
+  - Assets/Images/Emptyroom2.jpg
+  - Assets/Images/Emptyroom.jpg
+  - Assets/Images/Emptyroom3.jpg
+  - Assets/Images/Emptyroom4.jpg
+  - Assets/Images/room1.jpg
+  - Assets/Images/room2.jpg
+  - Assets/Images/room3.jpg
+  - Assets/Images/room4.jpg  
+  - Assets/Images/bed1.jpg
+  - Assets/Images/bed2.jpg
 
   #   - images/a_dot_ham.jpeg
 
