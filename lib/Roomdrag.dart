@@ -23,27 +23,28 @@ class InteriorDesignScreen extends StatefulWidget {
 class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
   Map<String, List<Furniture>> furnitureCategories = {
     'Sofa': [
-      Furniture('Sofa 1', 'Assets/Images/sofa.jpg'),
-      Furniture('Sofa 2', 'Assets/Images/sofa2.jpg'),
+      Furniture('', 'Assets/Images/sofa.jpg'),
+      Furniture('', 'Assets/Images/sofa2.jpg'),
     ],
     'vase': [
       Furniture('vase 1', 'Assets/Images/vase.jpg'),
       Furniture('vase 2', 'Assets/Images/Vase2.png'),
     ],
     'Tv': [
-      Furniture('Table 1', 'Assets/Images/Tv.jpg'),
-      Furniture('Table 2', 'Assets/Images/Tv2.jpg'),
+      Furniture('Tv 1', 'Assets/Images/tv.jpg'),
+      Furniture('TV 2', 'Assets/Images/tv2.jpg'),
     ],
     'bed': [
       Furniture('bed 1', 'Assets/Images/bed1.jpg'),
       Furniture('bed 2', 'Assets/Images/bed2.jpg'),
     ],
-    // Add more categories and furniture items as needed
+    // Add room furniture images and categories as needed
   };
 
   List<PlacedFurniture> placedFurniture = [];
 
-  String? backgroundImage;
+  XFile? backgroundImage;
+  bool isDragging = false;
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +68,10 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                       ...furnitureCategories[category]!.map((furniture) {
                         return Draggable(
                           data: furniture,
-                          child: FurnitureItemWidget(furniture),
-                          feedback: FurnitureItemWidget(furniture, isDragging: true),
+                          feedback:
+                              FurnitureItemWidget(furniture, isDragging: true),
                           childWhenDragging: Container(),
+                          child: FurnitureItemWidget(furniture),
                         );
                       }).toList(),
                     ],
@@ -85,7 +87,7 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                   // Select Background Image Button
                   ElevatedButton(
                     onPressed: () async {
-                      String? selectedImage = await selectBackgroundImage();
+                      XFile? selectedImage = await selectBackgroundImage();
                       if (selectedImage != null) {
                         print('Selected image path: ${selectedImage}');
                         setState(() {
@@ -100,11 +102,12 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                     child: DragTarget<Furniture>(
                       builder: (context, candidateData, rejectedData) {
                         return Container(
-                         // color: Colors.grey[300],
+                          // color: Colors.grey[300],
                           decoration: backgroundImage != null
                               ? BoxDecoration(
                                   image: DecorationImage(
-                                    image: FileImage(File(backgroundImage!)),
+                                    image:
+                                        FileImage(File(backgroundImage!.path)),
                                     fit: BoxFit.cover,
                                   ),
                                 )
@@ -116,15 +119,81 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                                 top: furniture.y,
                                 child: Draggable(
                                   data: furniture.item,
-                                  child: FurnitureItemWidget(furniture.item),
-                                  feedback: FurnitureItemWidget(furniture.item, isDragging: true),
+                                  feedback: FurnitureItemWidget(furniture.item,
+                                      isDragging: true),
                                   childWhenDragging: Container(),
+                                  // onDraggableCanceled: (velocity, offset) {
+                                  //    print(
+                                  //       'Dragging cancel at ${velocity} $offset');
+                                  //       if (offset.dx.abs() > 150 || offset.dy.abs() > 150) {
+                                  //       setState(() {
+                                  //         placedFurniture.removeLast();
+                                  //         isDragging = false;
+                                  //       });
+                                  //     }
+                                  // },
                                   onDraggableCanceled: (velocity, offset) {
+                                    if (isDragging) {
+                                      setState(() {
+                                        placedFurniture.removeLast();
+                                        isDragging = false;
+                                      });
+                                    }
+                                  },
+                                  onDragEnd: (details) {
                                     setState(() {
-                                      furniture.x = offset.dx;
-                                      furniture.y = offset.dy;
+                                      isDragging = false;
+                                      placedFurniture.last.x +=
+                                          details.offset.dx;
+                                      placedFurniture.last.y +=
+                                          details.offset.dy;
+
+                                      // Remove the previous image if it was just dragged to a new position
+                                      if (placedFurniture.length > 1) {
+                                        placedFurniture.removeAt(
+                                            placedFurniture.length - 2);
+                                      }
                                     });
                                   },
+                                  onDragStarted: () {
+                                    print('Drag started!');
+                                    setState(() {
+                                      isDragging = true;
+                                    });
+                                  },
+                                  onDragUpdate: (details) {
+                                    print(
+                                        'Dragging at ${details.globalPosition}');
+                                    setState(() {
+                                      furniture.x = details.globalPosition!.dx;
+                                      furniture.y = details.globalPosition!.dy;
+                                    });
+                                  },
+                                  // onDraggableCanceled: (velocity, offset) {
+                                  //   print('Draggable canceled with velocity $velocity, offset $offset');
+                                  // },
+                                  // onDragEnd: (details) {
+                                  //   print(
+                                  //       'Drag ended with primaryDelta: ${details.offset}');
+                                  //   setState(() {
+                                  //     // Update furniture position on drag end.
+                                  //     placedFurniture.last.x +=
+                                  //         details.offset!.dx;
+                                  //     placedFurniture.last.y +=
+                                  //         details.offset!.dy;
+                                  //   });
+                                  // },
+
+                                  onDragCompleted: () {
+                                    print('Drag completed!');
+                                    setState(() {
+                                      isDragging = false;
+                                    });
+                                  },
+                                  child: FurnitureItemWidget(
+                                    furniture.item,
+                                    isDragging: isDragging,
+                                  ),
                                 ),
                               );
                             }).toList(),
@@ -151,10 +220,10 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
     );
   }
 
-  Future<String?> selectBackgroundImage() async {
+  Future<XFile?> selectBackgroundImage() async {
     final imagePicker = ImagePicker();
     XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
-    return file?.path;
+    return file!;
   }
 }
 

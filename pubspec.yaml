@@ -44,6 +44,14 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_native_splash: ^1.2.1
+
+flutter_native_splash:
+  color: "#2196F3"
+  image: "Assets/Images/south_delhi.jpg"
+  android: true
+  ios: true  
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -64,40 +72,41 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - Assets/Images/sofa10.jpeg
-  - Assets/Images/hall.jpg
-  - Assets/Images/south_delhi.jpg
-  - Assets/Images/hall design6.jpg
-  - Assets/Images/forward_icon.svg
-  - Assets/Images/erik.avif
-  - Assets/Images/sofa.jpg
-  - Assets/Images/diningtable5.jpg
-  - Assets/Images/interior_design.png
-  - Assets/Images/vase.jpg
-  - Assets/Images/image_detail.png
-  - Assets/Images/share_icon.svg
-  - Assets/Images/heart_icon.svg
-  - Assets/Images/back_icon.svg
-  - Assets/Images/image_1.png
-  - Assets/Images/image_2.png
-  - Assets/Images/image_3.png
-  - Assets/Images/image_4.png
-  - Assets/Images/image_5.png
-  - Assets/Images/burger_icon.svg
-  - Assets/Images/search_icon.svg
-  - Assets/Images/forward_icon.svg
-  - Assets/Images/sofa2.jpg
-  - Assets/Images/Vase2.png
-  - Assets/Images/Emptyroom2.jpg
-  - Assets/Images/Emptyroom.jpg
-  - Assets/Images/Emptyroom3.jpg
-  - Assets/Images/Emptyroom4.jpg
-  - Assets/Images/room1.jpg
-  - Assets/Images/room2.jpg
-  - Assets/Images/room3.jpg
-  - Assets/Images/room4.jpg  
-  - Assets/Images/bed1.jpg
-  - Assets/Images/bed2.jpg
+    - Assets/Images/
+  # - Assets/Images/sofa10.jpeg
+  # - Assets/Images/hall.jpg
+  # - Assets/Images/south_delhi.jpg
+  # - Assets/Images/hall design6.jpg
+  # - Assets/Images/forward_icon.svg
+  # - Assets/Images/erik.avif
+  # - Assets/Images/sofa.jpg
+  # - Assets/Images/diningtable5.jpg
+  # - Assets/Images/interior_design.png
+  # - Assets/Images/vase.jpg
+  # - Assets/Images/image_detail.png
+  # - Assets/Images/share_icon.svg
+  # - Assets/Images/heart_icon.svg
+  # - Assets/Images/back_icon.svg
+  # - Assets/Images/image_1.png
+  # - Assets/Images/image_2.png
+  # - Assets/Images/image_3.png
+  # - Assets/Images/image_4.png
+  # - Assets/Images/image_5.png
+  # - Assets/Images/burger_icon.svg
+  # - Assets/Images/search_icon.svg
+  # - Assets/Images/forward_icon.svg
+  # - Assets/Images/sofa2.jpg
+  # - Assets/Images/Vase2.png
+  # - Assets/Images/Emptyroom2.jpg
+  # - Assets/Images/Emptyroom.jpg
+  # - Assets/Images/Emptyroom3.jpg
+  # - Assets/Images/Emptyroom4.jpg
+  # - Assets/Images/room1.jpg
+  # - Assets/Images/room2.jpg
+  # - Assets/Images/room3.jpg
+  # - Assets/Images/room4.jpg  
+  # - Assets/Images/bed1.jpg
+  # - Assets/Images/bed2.jpg
 
   #   - images/a_dot_ham.jpeg
 
