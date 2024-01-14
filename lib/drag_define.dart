@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Data/Data.dart';
-import 'package:flutter_application_1/Widget/draggable_widget.dart';
-import '../data/data.dart';
 
 void main() {
   runApp(Overlap_fix());

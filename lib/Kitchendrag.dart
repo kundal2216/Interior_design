@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
-  runApp(HallDrag());
+  runApp(KitchenDrag());
 }
 
-class HallDrag extends StatelessWidget {
+class KitchenDrag extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,21 +22,21 @@ class InteriorDesignScreen extends StatefulWidget {
 
 class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
   Map<String, List<Furniture>> furnitureCategories = {
-    'Sofa': [
-      Furniture('', 'Assets/Images/sofa.jpeg'),
-      Furniture('', 'Assets/Images/sofa2.jpeg'),
+    'Flower pot': [
+      Furniture('', 'Assets/Images/flowerpot3.jpeg'),
+      Furniture('', 'Assets/Images/flowerpot4.jpeg'),
     ],
-    'Table': [
-      Furniture('', 'Assets/Images/tableHALL.jpeg'),
-      Furniture('', 'Assets/Images/tableHALL2.jpeg'),
+    'Ceiling Lamp': [
+      Furniture('', 'Assets/Images/ceilinglamp2.jpeg'),
+      Furniture('', 'Assets/Images/ceilinglamp4.jpeg'),
     ],
-    'Decorative': [
-      Furniture('', 'Assets/Images/painting2.jpeg'),
-      Furniture('', 'Assets/Images/Decorative.jpeg'),
+    'Lamp': [
+      Furniture('', 'Assets/Images/lamp1.jpeg'),
+      Furniture('', 'Assets/Images/lamp2.jpg'),
     ],
-    'lamp': [
-      Furniture('', 'Assets/Images/lamp3.jpeg'),
-      Furniture('', 'Assets/Images/lamp4.jpeg'),
+    'Dining Table': [
+      Furniture('', 'Assets/Images/diningtable4.jpeg'),
+      Furniture('', 'Assets/Images/diningtable5.jpeg'),
     ],
     // Add more categories and furniture items as needed
   };

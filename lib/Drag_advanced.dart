@@ -1,5 +1,4 @@
 //import 'package:flutter_application_1/data/data.dart';
-import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/utils.dart';
 import 'package:flutter_application_1/Widget/draggable_widget.dart';
 import 'package:flutter/material.dart';

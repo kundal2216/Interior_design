@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class DetailPage extends StatefulWidget {
-  const DetailPage({super.key});
+class Image1_DetailPage extends StatefulWidget {
+  const Image1_DetailPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _DetailPageState createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailPageState extends State<Image1_DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +62,7 @@ class _DetailPageState extends State<DetailPage> {
             margin: EdgeInsets.only(top: size.height * 0.45),
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(50)),
+                color: Colors.black, borderRadius: BorderRadius.circular(50)),
             child: Padding(
               padding: const EdgeInsets.all(30),
               child: Column(
@@ -74,7 +74,7 @@ class _DetailPageState extends State<DetailPage> {
                       width: 150,
                       height: 7,
                       decoration: BoxDecoration(
-                          color: Colors.red[50],
+                          color: Color.fromARGB(255, 93, 1, 15),
                           borderRadius: BorderRadius.circular(10)),
                     ),
                   ),
@@ -127,6 +127,7 @@ class _DetailPageState extends State<DetailPage> {
                     children: <Widget>[
                       Container(
                         decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 223, 186, 186),
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(3)),
                         child: const Padding(
@@ -139,6 +140,7 @@ class _DetailPageState extends State<DetailPage> {
                       ),
                       Container(
                         decoration: BoxDecoration(
+                              color:const Color.fromARGB(255, 223, 186, 186),
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(3)),
                         child: const Padding(
@@ -149,15 +151,17 @@ class _DetailPageState extends State<DetailPage> {
                        const SizedBox(
                         width: 20,
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius: BorderRadius.circular(3)),
-                        child: const Padding(
-                          padding: EdgeInsets.all(6.0),
-                          child: Text("Ideas"),
-                        ),
-                      )
+Container(
+  decoration: BoxDecoration(
+    color: const Color.fromARGB(255, 223, 186, 186), // Set your desired background color
+    border: Border.all(color: Colors.grey),
+    borderRadius: BorderRadius.circular(3),
+  ),
+  child: const Padding(
+    padding: EdgeInsets.all(6.0),
+    child: Text("Ideas"),
+  ),
+)
                     ],
                   ),
                   const SizedBox(height: 20,),

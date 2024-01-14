@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_application_1/constant.dart';
 import 'package:flutter/material.dart';
 // import 'package:flutter_application_1/overlaping_fix.dart';
-import 'package:flutter_application_1/HallDrag.dart';
+//import 'package:flutter_application_1/HallDrag.dart';
+import 'package:flutter_application_1/option.dart';
 import 'package:flutter_application_1/readymade/home_page.dart';
 //import 'package:flutter_application_1/drag_define.dart';
-import 'package:flutter_application_1/Overlay.dart';
 
 //import '../data/data.dart';
 
@@ -95,7 +95,7 @@ class WelcomeScreen extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return OverlapFix();
+                                return Option();
                               },
                             ),
                           );
