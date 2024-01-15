@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Image1_DetailPage extends StatefulWidget {
-  const Image1_DetailPage({super.key});
+class Lesly_Juarez extends StatefulWidget {
+  const Lesly_Juarez({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _DetailPageState createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<Image1_DetailPage> {
+class _DetailPageState extends State<Lesly_Juarez> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,7 +107,7 @@ class _DetailPageState extends State<Image1_DetailPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            "Jean-Luis",
+                            "Lesly Juarez",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),

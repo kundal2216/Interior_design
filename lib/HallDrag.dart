@@ -38,36 +38,45 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
       Furniture('', 'Assets/Images/lamp3.jpeg'),
       Furniture('', 'Assets/Images/lamp4.jpeg'),
     ],
-    // Add more categories and furniture items as needed
   };
-  
 
   List<PlacedFurniture> placedFurniture = [];
 
   XFile? backgroundImage;
-  bool isDragging = false;
+  bool isMenuVisible = false;
 
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Interior Design App'),
-        elevation: 0, // Remove appbar shadow
-      ),
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Color(0xFF2c3e50), Color(0xFF3498db)],
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              setState(() {
+                isMenuVisible = !isMenuVisible;
+              });
+            },
           ),
-        ),
-        child: Center(
-          child: Row(
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Color(0xFF2c3e50), Color(0xFF3498db)],
+            ),
+          ),
+          child: Column(
             children: [
-             // Furniture List
+              // Furniture List
               Container(
-                width: 150.0,
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
                 decoration: BoxDecoration(
                   color: Color(0xFF34495e),
                   boxShadow: [
@@ -78,38 +87,48 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                     ),
                   ],
                 ),
-                child: ListView.builder(
-                  itemCount: furnitureCategories.keys.length,
-                  itemBuilder: (context, index) {
-                    String category = furnitureCategories.keys.elementAt(index);
-                    return Column(
-                      children: [
-                        SizedBox(height: 16.0),
-                        Text(
-                          category,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                            color: Colors.white,
-                          ),
-                        ),
-                        ...furnitureCategories[category]!.map((furniture) {
-                          return Draggable(
-                            data: furniture,
-                            feedback:
-                                FurnitureItemWidget(furniture, isDragging: true),
-                            childWhenDragging: Container(),
-                            child: FurnitureItemWidget(furniture),
-                          );
-                        }).toList(),
-                      ],
-                    );
-                  },
+                child: Column(
+                  children: [
+                    if (!isMenuVisible) // Show only if menu is not visible
+                      ...furnitureCategories.keys.map((category) {
+                        return Column(
+                          children: [
+                            SizedBox(height: 16.0),
+                            Text(
+                              category,
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Container(
+                              height: 100.0,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: furnitureCategories[category]!.map((furniture) {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                    child: Draggable(
+                                      data: furniture,
+                                      feedback: FurnitureItemWidget(furniture),
+                                      childWhenDragging: Container(),
+                                      child: FurnitureItemWidget(furniture),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                            ),
+                          ],
+                        );
+                      }),
+                  ],
                 ),
               ),
+
               // Room Canvas
-              // Room Canvas
-              Expanded(
+              Container(
+                width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -139,7 +158,8 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                         ),
                       ),
                     ),
-                    Expanded(
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.6,
                       child: DragTarget<Furniture>(
                         builder: (context, candidateData, rejectedData) {
                           return Container(
@@ -158,36 +178,23 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                                   left: furniture.x,
                                   top: furniture.y,
                                   child: Draggable(
-                                    data: furniture.item,
-                                    feedback: FurnitureItemWidget(
-                                        furniture.item, isDragging: true),
+                                    data: furniture,
+                                    feedback: FurnitureItemWidget(furniture.item),
                                     childWhenDragging: Container(),
                                     onDraggableCanceled: (velocity, offset) {
-                                      if (isDragging) {
-                                        setState(() {
-                                          placedFurniture.removeLast();
-                                          isDragging = false;
-                                        });
-                                      }
+                                      setState(() {
+                                        // Remove the isDragging flag
+                                        placedFurniture.removeLast();
+                                      });
                                     },
                                     onDragEnd: (details) {
                                       setState(() {
-                                        isDragging = false;
-                                        placedFurniture.last.x +=
-                                            details.offset.dx;
-                                        placedFurniture.last.y +=
-                                            details.offset.dy;
-                                        if (placedFurniture.length > 1) {
-                                          placedFurniture.removeAt(
-                                              placedFurniture.length - 2);
-                                        }
+                                        furniture.x += details.offset.dx;
+                                        furniture.y += details.offset.dy;
                                       });
                                     },
                                     onDragStarted: () {
                                       print('Drag started!');
-                                      setState(() {
-                                        isDragging = true;
-                                      });
                                     },
                                     onDragUpdate: (details) {
                                       print(
@@ -199,14 +206,8 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                                     },
                                     onDragCompleted: () {
                                       print('Drag completed!');
-                                      setState(() {
-                                        isDragging = false;
-                                      });
                                     },
-                                    child: FurnitureItemWidget(
-                                      furniture.item,
-                                      isDragging: isDragging,
-                                    ),
+                                    child: FurnitureItemWidget(furniture.item),
                                   ),
                                 );
                               }).toList(),
@@ -226,6 +227,26 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                   ],
                 ),
               ),
+
+              // Menu Bar
+              if (isMenuVisible)
+                Container(
+                  height: 120.0,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: placedFurniture.map((furniture) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Draggable(
+                          data: furniture,
+                          feedback: FurnitureItemWidget(furniture.item),
+                          childWhenDragging: Container(),
+                          child: FurnitureItemWidget(furniture.item),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                ),
             ],
           ),
         ),
@@ -236,7 +257,7 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
   Future<XFile?> selectBackgroundImage() async {
     final imagePicker = ImagePicker();
     XFile? file = await imagePicker.pickImage(source: ImageSource.gallery);
-    return file!;
+    return file;
   }
 }
 
@@ -257,9 +278,8 @@ class PlacedFurniture {
 
 class FurnitureItemWidget extends StatelessWidget {
   final Furniture item;
-  final bool isDragging;
 
-  FurnitureItemWidget(this.item, {this.isDragging = false});
+  FurnitureItemWidget(this.item);
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +297,7 @@ class FurnitureItemWidget extends StatelessWidget {
               fit: BoxFit.cover,
             ),
             border: Border.all(
-              color: isDragging ? Colors.blue : Colors.black,
+              color: Colors.black,
               width: 2.0,
             ),
           ),

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Image1_DetailPage extends StatefulWidget {
-  const Image1_DetailPage({super.key});
+class Jean_Luis extends StatefulWidget {
+  const Jean_Luis({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
   _DetailPageState createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<Image1_DetailPage> {
+class _DetailPageState extends State<Jean_Luis> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +28,7 @@ class _DetailPageState extends State<Image1_DetailPage> {
             height: size.height * 0.5,
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/images/image_detail.png"),
+                  image: AssetImage("Assets/Images/BR1.jpg"),
                   fit: BoxFit.cover),
             ),
             child: SafeArea(
@@ -82,7 +82,7 @@ class _DetailPageState extends State<Image1_DetailPage> {
                     height: 20,
                   ),
                   const Text(
-                    "10 best interior ideas for your\nliving room",
+                    "10 best interior ideas for your\n Bed room",
                     style: TextStyle(fontSize: 20, height: 1.5),
                   ),
                   const SizedBox(
@@ -97,7 +97,7 @@ class _DetailPageState extends State<Image1_DetailPage> {
                             shape: BoxShape.circle,
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"),
+                                    "https://images.unsplash.com/photo-1525879000488-bff3b1c387cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
                                 fit: BoxFit.cover)),
                       ),
                       const SizedBox(
@@ -184,7 +184,7 @@ Container(
                             height: 150,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("assets/images/image_2.png"),fit: BoxFit.cover)
+                              image: const DecorationImage(image: AssetImage("Assets/Images/BR2.jpg"),fit: BoxFit.cover)
                             ),
                           ),
                         ),
@@ -195,7 +195,7 @@ Container(
                             height: 150,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("assets/images/image_3.png"),fit: BoxFit.cover)
+                              image: const DecorationImage(image: AssetImage("Assets/Images/BR3.jpg"),fit: BoxFit.cover)
                             ),
                           ),
                         ),
@@ -206,7 +206,7 @@ Container(
                             height: 150,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("assets/images/image_4.png"),fit: BoxFit.cover)
+                              image: const DecorationImage(image: AssetImage("Assets/Images/BR4.jpg"),fit: BoxFit.cover)
                             ),
                           ),
                         )

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/readymade/Image1detail.dart';
+import 'package:flutter_application_1/readymade/Lesly_Juarez.dart';
+import 'package:flutter_application_1/readymade/Jean_Luis.dart';
+import 'package:flutter_application_1/readymade/Phillipe.dart';
+import 'package:flutter_application_1/readymade/Michael.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -49,28 +52,28 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: <Widget>[
                         FittedBox(
-                                                child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const HomePage();
-                              },
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const Jean_Luis();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "https://images.unsplash.com/photo-1525879000488-bff3b1c387cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
+                                      fit: BoxFit.cover)),
                             ),
-                          );
-                        },
-                          child: Container(
-                            width: 80,
-                            height: 80,
-                            decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                image: DecorationImage(
-                                    image: NetworkImage(
-                                        "https://images.unsplash.com/photo-1525879000488-bff3b1c387cf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
-                                    fit: BoxFit.cover)),
                           ),
-                                                ),
                         ),
                         const SizedBox(
                           height: 15,
@@ -83,20 +86,34 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(right: 20),
                     child: Column(
                       children: <Widget>[
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
-                                  fit: BoxFit.cover)),
+                        FittedBox(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const Phillipe();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "https://images.unsplash.com/photo-1517070208541-6ddc4d3efbcb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 15,
                         ),
-                        const Text("Phillinpe")
+                        const Text("Phillipe")
                       ],
                     ),
                   ),
@@ -104,15 +121,29 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(right: 20),
                     child: Column(
                       children: <Widget>[
-                        Container(
-                          width: 80,
-                          height: 80,
-                          decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
-                                  fit: BoxFit.cover)),
+                        FittedBox(
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) {
+                                    return const Michael();
+                                  },
+                                ),
+                              );
+                            },
+                            child: Container(
+                              width: 80,
+                              height: 80,
+                              decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: NetworkImage(
+                                          "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"),
+                                      fit: BoxFit.cover)),
+                            ),
+                          ),
                         ),
                         const SizedBox(
                           height: 15,
@@ -164,7 +195,7 @@ class _HomePageState extends State<HomePage> {
             InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const Image1_DetailPage()));
+                    MaterialPageRoute(builder: (_) => const Lesly_Juarez()));
               },
               child: Container(
                 width: double.infinity,
@@ -181,29 +212,14 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Column(
                   children: <Widget>[
-                    FittedBox(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return const HomePage();
-                              },
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: (MediaQuery.of(context).size.width - 80) / 2,
-                          height: 150,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/image_2.png"),
-                                  fit: BoxFit.cover)),
-                        ),
-                      ),
+                    Container(
+                      width: (MediaQuery.of(context).size.width - 80) / 2,
+                      height: 150,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          image: const DecorationImage(
+                              image: AssetImage("assets/images/image_2.png"),
+                              fit: BoxFit.cover)),
                     ),
                     const SizedBox(
                       height: 20,
