@@ -40,10 +40,10 @@ class _DetailPageState extends State<Jean_Luis> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     InkWell(
-                      onTap: (){
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset("assets/images/back_icon.svg")),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: SvgPicture.asset("assets/images/back_icon.svg")),
                     Row(
                       children: <Widget>[
                         SvgPicture.asset("assets/images/heart_icon.svg"),
@@ -68,7 +68,6 @@ class _DetailPageState extends State<Jean_Luis> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  
                   Align(
                     child: Container(
                       width: 150,
@@ -122,12 +121,14 @@ class _DetailPageState extends State<Jean_Luis> {
                       )
                     ],
                   ),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     children: <Widget>[
                       Container(
                         decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 223, 186, 186),
+                            color: const Color.fromARGB(255, 223, 186, 186),
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(3)),
                         child: const Padding(
@@ -140,7 +141,7 @@ class _DetailPageState extends State<Jean_Luis> {
                       ),
                       Container(
                         decoration: BoxDecoration(
-                              color:const Color.fromARGB(255, 223, 186, 186),
+                            color: const Color.fromARGB(255, 223, 186, 186),
                             border: Border.all(color: Colors.grey),
                             borderRadius: BorderRadius.circular(3)),
                         child: const Padding(
@@ -148,34 +149,43 @@ class _DetailPageState extends State<Jean_Luis> {
                           child: Text("40m2"),
                         ),
                       ),
-                       const SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
-Container(
-  decoration: BoxDecoration(
-    color: const Color.fromARGB(255, 223, 186, 186), // Set your desired background color
-    border: Border.all(color: Colors.grey),
-    borderRadius: BorderRadius.circular(3),
-  ),
-  child: const Padding(
-    padding: EdgeInsets.all(6.0),
-    child: Text("Ideas"),
-  ),
-)
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 223, 186,
+                              186), // Set your desired background color
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(3),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(6.0),
+                          child: Text("Ideas"),
+                        ),
+                      )
                     ],
                   ),
-                  const SizedBox(height: 20,),
-                  const Text("Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process. And once you start brainstorming, the rest is easy. From gallery walls to DIY pieces like framing your accessories and large-scale photography, we've got plenty of wall art ideas to spark your creativity. And where better to look for inspiration that interior designer-decorated walls",style: TextStyle(
-                    height: 1.6
-                  ),),
-                  const SizedBox(height: 20,),
-                  const Text("Gallery",style: TextStyle(
-                    fontSize: 18
-                  ),),
-                  const SizedBox(height: 20,),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Nobody wants to stare at a blank wall all day long, which is why wall art is such a crucial step in the decorating process. And once you start brainstorming, the rest is easy. From gallery walls to DIY pieces like framing your accessories and large-scale photography, we've got plenty of wall art ideas to spark your creativity. And where better to look for inspiration that interior designer-decorated walls",
+                    style: TextStyle(height: 1.6),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const Text(
+                    "Gallery",
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                                      child: Row(
+                    child: Row(
                       children: <Widget>[
                         Padding(
                           padding: const EdgeInsets.only(right: 20),
@@ -183,9 +193,10 @@ Container(
                             width: 150,
                             height: 150,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("Assets/Images/BR2.jpg"),fit: BoxFit.cover)
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                image: const DecorationImage(
+                                    image: AssetImage("Assets/Images/BR2.jpg"),
+                                    fit: BoxFit.cover)),
                           ),
                         ),
                         Padding(
@@ -194,9 +205,10 @@ Container(
                             width: 150,
                             height: 150,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("Assets/Images/BR3.jpg"),fit: BoxFit.cover)
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                image: const DecorationImage(
+                                    image: AssetImage("Assets/Images/BR3.jpg"),
+                                    fit: BoxFit.cover)),
                           ),
                         ),
                         Padding(
@@ -205,16 +217,15 @@ Container(
                             width: 150,
                             height: 150,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: const DecorationImage(image: AssetImage("Assets/Images/BR4.jpg"),fit: BoxFit.cover)
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                image: const DecorationImage(
+                                    image: AssetImage("Assets/Images/BR4.jpg"),
+                                    fit: BoxFit.cover)),
                           ),
                         )
                       ],
                     ),
                   )
-                  
-                 
                 ],
               ),
             ),

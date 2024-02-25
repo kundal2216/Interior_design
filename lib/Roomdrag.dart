@@ -124,7 +124,7 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF2980b9),
+                        backgroundColor: Color(0xFF2980b9),
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                         shape: RoundedRectangleBorder(
@@ -193,8 +193,8 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                                       print(
                                           'Dragging at ${details.globalPosition}');
                                       setState(() {
-                                        furniture.x = details.globalPosition!.dx;
-                                        furniture.y = details.globalPosition!.dy;
+                                        furniture.x = details.globalPosition.dx;
+                                        furniture.y = details.globalPosition.dy;
                                       });
                                     },
                                     onDragCompleted: () {

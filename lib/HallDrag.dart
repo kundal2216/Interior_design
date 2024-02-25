@@ -89,7 +89,7 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                 ),
                 child: Column(
                   children: [
-                    if (!isMenuVisible) // Show only if menu is not visible
+                    if (!isMenuVisible) // Show only if the menu is not visible
                       ...furnitureCategories.keys.map((category) {
                         return Column(
                           children: [
@@ -166,8 +166,7 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                             decoration: backgroundImage != null
                                 ? BoxDecoration(
                                     image: DecorationImage(
-                                      image:
-                                          FileImage(File(backgroundImage!.path)),
+                                      image: FileImage(File(backgroundImage!.path)),
                                       fit: BoxFit.cover,
                                     ),
                                   )
@@ -183,29 +182,13 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                                     childWhenDragging: Container(),
                                     onDraggableCanceled: (velocity, offset) {
                                       setState(() {
-                                        // Remove the isDragging flag
-                                        placedFurniture.removeLast();
+                                        // Check if the furniture is already placed
+                                        if (!placedFurniture.contains(furniture)) {
+                                          furniture.x = offset.dx;
+                                          furniture.y = offset.dy;
+                                          placedFurniture.add(furniture);
+                                        }
                                       });
-                                    },
-                                    onDragEnd: (details) {
-                                      setState(() {
-                                        furniture.x += details.offset.dx;
-                                        furniture.y += details.offset.dy;
-                                      });
-                                    },
-                                    onDragStarted: () {
-                                      print('Drag started!');
-                                    },
-                                    onDragUpdate: (details) {
-                                      print(
-                                          'Dragging at ${details.globalPosition}');
-                                      setState(() {
-                                        furniture.x = details.globalPosition!.dx;
-                                        furniture.y = details.globalPosition!.dy;
-                                      });
-                                    },
-                                    onDragCompleted: () {
-                                      print('Drag completed!');
                                     },
                                     child: FurnitureItemWidget(furniture.item),
                                   ),
@@ -219,7 +202,10 @@ class _InteriorDesignScreenState extends State<InteriorDesignScreen> {
                         },
                         onAccept: (data) {
                           setState(() {
-                            placedFurniture.add(PlacedFurniture(data, 0, 0));
+                            // Check if the furniture is already placed
+                            if (!placedFurniture.contains(data)) {
+                              placedFurniture.add(PlacedFurniture(data, 0, 0));
+                            }
                           });
                         },
                       ),
